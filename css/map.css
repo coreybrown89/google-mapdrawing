@@ -1,0 +1,44 @@
+#map {
+  height: 400px;
+  width: 800px;
+  background-color: #eaeaea;
+  margin: 30px auto;
+}
+
+h1 {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	text-align: center;
+	padding-top: 50px;
+}
+.address-area {
+	display: flex;
+	justify-content: center;
+}
+.address-area input:focus {
+	border: none;
+	box-shadow: none;
+}
+.address-area input[type=text] {
+	padding: 12px;
+	font-size: 18px;
+	width: 400px;
+	border: 1px solid #eaeaea;
+	border-right: none;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.address-area input[type=submit] {
+	background-color: blue;
+	border: none;
+	width: 80px;
+	color: white;
+	font-size: 14px;
+	font-weight: 200;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.address-area input[type=submit]:hover {
+	background-color: #0064ff;
+	cursor: pointer;
+}
