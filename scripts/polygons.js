@@ -32,17 +32,18 @@ function initMap() {
       editable: false,
       zIndex: 1
     }
-
-  
   }); 
-
-  drawingManager.setMap(map);
-
+    drawingManager.setMap(map);
+  
   drawingManager.setOptions({
     drawingControlOptions: {
     position: google.maps.ControlPosition.BOTTOM_LEFT,
     drawingModes: ['polygon']
   }
+
+  
+
+  
 });
 
   // completed polygon listener
