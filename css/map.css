@@ -45,3 +45,9 @@ h1 {
 .draw-yard h1 {
 	display: none;
 }
+
+@media screen and (max-width: 800px) {
+	#map {
+		width: 100%;
+	}
+}
