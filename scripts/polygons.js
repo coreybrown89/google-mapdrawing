@@ -1,19 +1,28 @@
 var $addressSubmit = $('input[type=submit]');
 var $mapArea = $('.draw-yard');
-var $address = $('#map-address');
+var address = document.getElementById('address-input');
 
 
 
 
+
+
+//var options = { types: ['address'] };
+//autocomplete = new google.maps.places.Autocomplete(address, options);
 
 function initMap() {
+
+  var centerMap = function(location) {
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 29.7603, lng: -95.4679},
-      zoom: 19,
+      center: location,
+      zoom: 20,
     streetViewControl: false,
     disableDefaultUI: true,
     mapTypeId: 'satellite'
     });
+
+    drawingManager.setMap(map);
+  };
 
     // Enable Polygon Drawing
     var drawingManager = new google.maps.drawing.DrawingManager({
@@ -33,16 +42,13 @@ function initMap() {
       zIndex: 1
     }
   }); 
-    drawingManager.setMap(map);
+    
   
   drawingManager.setOptions({
     drawingControlOptions: {
     position: google.maps.ControlPosition.BOTTOM_LEFT,
     drawingModes: ['polygon']
   }
-
-  
-
   
 });
 
@@ -55,14 +61,28 @@ function initMap() {
 
   $('h1').append(areaTemplate);
 });
-  
 
+  // start address autocomplete
+  function initialize() {
+    var input = document.getElementById('address-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', updateAddress);
+
+    function updateAddress() {
+    place = autocomplete.getPlace();
+    centerMap(place.geometry.location);
+    $('section.enter-address').fadeOut('300');
+    $('.draw-yard h1').delay('400').fadeIn('slow');
+    //$('form.address-area').hide();
+    
+    }
+  }
+  
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+  
   } // initMap()
 
-  $(document).ready(function(){
-    $addressSubmit.click(function(){
-      initMap();
 
-    })
 
-  });
