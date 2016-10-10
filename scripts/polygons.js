@@ -2,14 +2,6 @@ var $addressSubmit = $('input[type=submit]');
 var $mapArea = $('.draw-yard');
 var address = document.getElementById('address-input');
 
-
-
-
-
-
-//var options = { types: ['address'] };
-//autocomplete = new google.maps.places.Autocomplete(address, options);
-
 function initMap() {
 
   var centerMap = function(location) {
@@ -17,7 +9,7 @@ function initMap() {
       center: location,
       zoom: 20,
     streetViewControl: false,
-    disableDefaultUI: true,
+    disableDefaultUI: false,
     mapTypeId: 'satellite'
     });
 
