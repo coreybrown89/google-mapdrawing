@@ -7,7 +7,7 @@ function initMap() {
   var centerMap = function(location) {
     var map = new google.maps.Map(document.getElementById('map'), {
       center: location,
-      zoom: 20,
+      zoom: 19,
     streetViewControl: false,
     disableDefaultUI: false,
     mapTypeId: 'satellite'
